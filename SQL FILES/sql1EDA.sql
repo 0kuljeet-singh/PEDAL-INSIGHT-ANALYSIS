@@ -26,18 +26,6 @@ SELECT
 FROM INFORMATION_SCHEMA.COLUMNS
 WHERE TABLE_NAME = 'sales';
 
-/*
-===============================================================================
-Date Range Exploration 
-===============================================================================
-Purpose:
-    - To determine the temporal boundaries of key data points.
-    - To understand the range of historical data.
-
-SQL Functions Used:
-    - MIN(), MAX(), DATEDIFF()
-===============================================================================
-*/
 
 -- Determine the first and last order date and the total duration in months
 SELECT 
@@ -54,18 +42,7 @@ SELECT
      ROUND(DATEDIFF(CURDATE(),MAX(birthdate))/365) AS youngest_age
 FROM customers;
 
-/*
-===============================================================================
-Measures Exploration (Key Metrics)
-===============================================================================
-Purpose:
-    - To calculate aggregated metrics (e.g., totals, averages) for quick insights.
-    - To identify overall trends or spot anomalies.
 
-SQL Functions Used:
-    - COUNT(), SUM(), AVG()
-===============================================================================
-*/
 -- Find the Total Sales
 -- Find how many items are sold
 -- Find the average selling price
@@ -88,19 +65,7 @@ UNION ALL
 SELECT 'Total Customers', ROUND(COUNT(customer_key)) FROM customers;
 
 
-/*
-===============================================================================
-Magnitude Analysis
-===============================================================================
-Purpose:
-    - To quantify data and group results by specific dimensions.
-    - For understanding data distribution across categories.
 
-SQL Functions Used:
-    - Aggregate Functions: SUM(), COUNT(), AVG()
-    - GROUP BY, ORDER BY
-===============================================================================
-*/
 
 -- Find total customers by countries
 create view customer_countries as 
